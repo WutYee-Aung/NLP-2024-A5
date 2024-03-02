@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Model Demo</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, button {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Check Sentence Similarity</h1>
+    <form action="/translate" method="post">
+        <label for="input_sentence1">Enter a Text Prompt-1:</label>
+        <input type="text" id="input_sentence1" name="input_sentence1" required>
+        <label for="input_sentence2">Enter a Text Prompt-2:</label>
+        <input type="text" id="input_sentence2" name="input_sentence2" required><br>
+        <button type="submit">Similarity</button>
+    </form>
+
+    {% if similarity_score %}
+        <h2>Input Text:</h2>
+        <p><strong>Sentence 1:</strong> {{ sent_a }}</p>
+        <p><strong>Sentence 2:</strong> {{ sent_b }}</p>
+        <p><strong>Similarity Score:</strong> {{ similarity_score }}</p>
+    {% endif %}
+</body>
+</html>
